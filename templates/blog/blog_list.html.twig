@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Welcome!</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+    </head>
+    <body>
+        <h1>Blog List</h1>
+        <div style="display: flex; flex-wrap: wrap; gap:1em;">
+        {% for post in posts %}
+            <a style="display: flex; flex-direction: column; border: 1px solid rgb(152, 152, 152); padding: 1em;" href="{{ path('blog_show', {'slug': post.slug}) }}">
+                <img src="{{post.picture}}" alt="{{post.title}}">
+                <h2>{{ post.title }}</h2>
+            </a>
+        {% endfor %}
+        </div>
+    </body>
+</html>
