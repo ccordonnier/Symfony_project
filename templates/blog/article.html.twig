@@ -1,0 +1,12 @@
+{% extends 'base_inner.html.twig' %}
+
+{% block title %}Homepage
+{% endblock %}
+
+{% block body %}
+	<h1 class="font-bold underline text-center text-3xl">{{ article.title }}</h1>
+	<div class="flex flex-col justify-center items-center px-40">
+		<img src="{{article.picture}}" alt="{{article.title}}" class="py-10 w-full">
+		<p>{{ article.description | nl2br }}</p>
+	</div>
+{% endblock %}

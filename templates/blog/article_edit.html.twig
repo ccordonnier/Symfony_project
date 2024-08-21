@@ -1,0 +1,53 @@
+{% extends 'base_inner.html.twig' %}
+
+{% block title %}Edition de l'article
+	{{ article.title }}
+{% endblock %}
+
+{% block body %}
+
+	<div class="w-1/2 mx-auto  flex flex-col justify-center self-center">
+		<h1 class="text-3xl font-bold my-10">Edition de l'article</h1>
+
+		<div class="space-y-1">
+			<form name="article" method="post">
+				<div class="py-6 pt-0 space-y-2">
+					<label class="text-lg font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="name">Titre</label>
+					<input type="text" placeholder="Titre" id="title" name="article[title]" value="{{article.title}}" class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md peer border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"/>
+				</div>
+				<div class="py-6 pt-0 space-y-2">
+					<label class="text-lg font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="name">Slug</label>
+					<input type="text" placeholder="Slug" id="slug" name="article[slug]" value="{{article.slug}}" class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md peer border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"/>
+				</div>
+        <div class="py-6 pt-0 space-y-2">
+					<label class="text-lg font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="name">Slug</label>
+					<input type="text" placeholder="Auteur" id="author" name="article[author]" value="{{article.author}}" class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md peer border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"/>
+				</div>
+        <div class="py-6 pt-0 space-y-2">
+					<label class="text-lg font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="name">Slug</label>
+					<input type="text" placeholder="Catégorie" id="category" name="article[category]" value="{{article.category}}" class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md peer border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"/>
+				</div>
+				<div class="py-6 pt-0 space-y-2">
+					<img src="{{article.picture}}" alt="article.picture" class="w-full h-full object-cover">
+					<label class="text-lg font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70" for="name">Modifier la photo</label>
+					{# <input type="file" placeholder="Modifier la photo" id="picture" name="picture"/> #}
+					<input type="text" placeholder="Url de l'image" id="picture" name="article[picture]" value="{{article.picture}}" class="flex w-full h-10 px-3 py-2 text-sm bg-white border rounded-md peer border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"/>
+				</div>
+				<div class="w-full py-6 pt-0 space-y-2" >
+					<textarea x-data="{resize () {$el.style.height = '0px';$el.style.height = $el.scrollHeight + 'px'}}" 
+                    x-init="resize()" 
+                    @input="resize()" 
+                    name="article[description]" 
+                    type="text"
+                    placeholder="Ajouter une description ..." 
+                    class="flex w-full h-auto min-h-[80px] px-3 py-2 text-sm bg-white border rounded-md border-neutral-300 ring-offset-background placeholder:text-neutral-400 focus:border-neutral-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-neutral-400 disabled:cursor-not-allowed disabled:opacity-50"
+          >
+            {{article.description}}
+          </textarea>
+				</div>
+				<div class="flex justify-end">
+					<button type="submit" class="w-auto px-4 py-3 font-medium text-white bg-blue-600 rounded-lg" data-primary="blue-600" data-rounded="rounded-lg">Enregistrer</button>
+				</div>
+			</form>
+		</div>
+	{% endblock %}
